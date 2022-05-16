@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>...find your relatable interests</title>
 </head>
 <body>
     <h1>FeatureScopeV3</h1>
+
+    <!-- Header, Input Box & Button-->
+
     <div class="container"></div>
     <script>
         function newEl(type, attrs={}) {
@@ -19,16 +22,29 @@
             }
             return el;
         }
+        // fetch ist of influencers from API 
 
         const influencers = [
-            {name: }
+            {name: } 
         ]
+
+        // Professor Dave - mathematician
+        // games from scratch / odysee
+        // simple electronics/ odysee
+        // ebay accounts
+        // amazon accounts
+
+    // render as HTML (divs) - formatted as cards from json file
+    // ssends data by linking form to API with an event listener when clicking button....
 
         const ctr = document.querySelector('.container');
         const card = newEl('div', {class: 'card'})
         ctr.appendChild(card);
 
-    </script>
+    </script> 
+
+    <!---->
+
     <style>
         .container {
             display: flex;

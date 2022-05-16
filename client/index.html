@@ -12,12 +12,15 @@
     <!-- Header, Input Box & Button-->
 
     <div class="container"></div>
+<!-- Helper functions that allows new documents to be added -->
+
     <script>
-        function newEl(type, attrs={}) {
-            const el = document.createElement(type);
-            for (let attr in attrs) {
+        function newEl(type, attrs={}) { // this takes a type i.e <header>, <div>, <img>, then an object of attributes that will apply
+                                        // all of these attributes to this element.
+            const el = document.createElement(type); // creates a new element with .createElement method.
+            for (let attr in attrs) { // then this will iterate through those attributes checking them one at a time
                 const value = attrs[attr];
-                if (attr == 'innerText') el.innerText = value;
+                if (attr == 'innerText') el.innerText = value; // then it will finally apply these attributes with innerText singled out to set the property, instead of running a function.
                 else el.setAttribute(attr, value);
             }
             return el;
@@ -25,7 +28,9 @@
         // fetch ist of influencers from API 
 
         const influencers = [
-            {name: } 
+            {name: 'Simple Electronics', img: 'https://'}, 
+            {name: 'Coreteks', img: 'https://'},
+            {name: 'ThriftyAV', img: 'https://'},
         ]
 
         // Professor Dave - mathematician
@@ -34,28 +39,30 @@
         // ebay accounts
         // amazon accounts
 
-    // render as HTML (divs) - formatted as cards from json file
-    // ssends data by linking form to API with an event listener when clicking button....
+        // renders list of content creators as HTML (divs) - formatted as cards from json file
+        // sends data by linking form to API with an event listener when clicking submit....
 
-        const ctr = document.querySelector('.container');
-        const card = newEl('div', {class: 'card'})
-        ctr.appendChild(card);
+        const ctr = document.querySelector('.container'); // setting a <div> and using a delector query
+        
+        influencers.forEach(influencer => {// loop through influencers
+            const card = newEl('div', {class: 'card'}); // can select a child element as card
+            const title = newEl('h4', {innerText: influencer.name});
+            const img = newEl('img', {src: influencer.img});
+            card.appendChild(title);
+            card.appendChild(img);
+            ctr.appendChild(card); // and add one card onto the end with the append method. 
+         })
 
     </script> 
-
     <!---->
-
     <style>
         .container {
             display: flex;
-            background-color:aqua
-
         }
         .card{
-            margin: 20px;
+            margin: 5px;
             padding: 20px;
-            background-color: darkslategrey;
-
+            border: 1px solid black;
         }
 
     

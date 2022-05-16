@@ -1,6 +1,6 @@
 # Future-Scope Webv3 App
 
-Building a full web scraping app in Javascript. The app combines data from social media urls & product based code sources as an mpv. The app will require minimum user input pulling in data from a random channel url like Odysee, YT, eBay or Amazon websites.
+Building a full web scraping app in Javascript. The app combines data from social media urls & product based code sources as an mpv. The app will require minimum user input pulling in data from a random channel url like Odysee, YouTube, eBay or Amazon sites.
 
 ## Contents
 
@@ -19,30 +19,33 @@ Building a full web scraping app in Javascript. The app combines data from socia
 
 ## Structure
 
-The app is a to analyise data and the solution consists of five tasks.
+The app is a to analyise data and the solution consists of five features described below.
+However the app requires a front-end solution to connect the user to an API via a form. The user will enter a SM platform url or product based URL, which gets sent through an API to pull data from the SM platforms. The result of which will be inserted into a database, then later served to the frontend when the page gets reloaded.
 
 ## Features
 
-- **FrontEndAPI & InformationStorage:**
-Requires a front-end solution to connect the user to an API via a form. The user will enter a SM platform url or product based URL, which gets sent through an API to pull data from the SM platforms. The result of which will be inserted into a database, then later served to the frontend when the page gets reloaded. - In development....
+- **InformationStorage:**
+- will attempt to retrieve meta data & price info a web source, storing data in a local database every 5 minutes. In development..
+
 - **DataFormatingRange:**
-Adjoining platform to filter out specific range over time. In development....
+- will adjoining platform to filter out specific range over time. In development....
 
 - **DataVisualisation**
-A visualisation system to provide a visualization of datasets. In development....
+- will attempt to visualize the data in a meaningful way. In development....
 
 - **ConnectionProcess**
-Crash reports and find errors with a tracked platform. In development....
+- will report on connectivity and find errors with a tracked platform. In development....
 
 - **AlertFluctuations**
-View portal for alerts collaboration and quick visualization. In development....
+- will supply a modal/portal for alerts collaboration and quick visualization. In development....
 
-I will document my work and thought-process, through commits, comments or a log in a .txt file or README.md file.
+I will endeavour to document my work and thought-process, through commits, comments or a log in a .txt file or README.md file.
 
 ## Logs
 
 - [npm install -g npm] - to download the latest version of npm, on the command line
 - [npm i express] - used this command inmy terminal window to install express.js
+- Keeping JS & CSS styling & html together in index.html
 
 ### Stack
 
@@ -52,3 +55,6 @@ I will document my work and thought-process, through commits, comments or a log 
 - [mySQL] - dbase using TypeORM is a TypeScript ORM library that makes it easy to link TypeScript apps up to relational data.
 
 ### Issues
+
+## Credits
+-

@@ -44,8 +44,14 @@ I will endeavour to document my work and thought-process, through commits, comme
 ## Logs
 
 - [npm install -g npm] - to download the latest version of npm, on the command line
-- [npm i express] - used this command inmy terminal window to install express.js
 - Keeping JS & CSS styling & html together in index.html
+- created a new file index.js and added example code there within a server folder and cd.. into the server directory.
+- [npm init -y] - to start installing dependancies.
+- [npm i express] - used this command to install express.js
+- [npm i body-parser] - used this command to install body-parser
+- [cd server] - changed folder to run and test in node environment
+- [node index.js] - to run or restart the server
+- [curl http://localhost:3000/influencers] - used client URL to test data temporarily in terminal
 
 ### Stack
 
@@ -57,4 +63,3 @@ I will endeavour to document my work and thought-process, through commits, comme
 ### Issues
 
 ## Credits
--

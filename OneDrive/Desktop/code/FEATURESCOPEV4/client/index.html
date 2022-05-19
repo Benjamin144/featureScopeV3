@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for your relatable interests</title>
+</head>
+<body>
+    <h1>miniScope4</h1>
+    <h4>Add a new creator</h4>
+    <input class="channel-input" type="text" placeholder="paste Odysee url" />
+    <button type="submit" onclick="submitChannel()">submit</button>
+    <div class="container"></div>
+    <script>
+
+        function submitChannel() {
+            const channelValue = document.querySelector('.channel.input').value;
+            // send to server
+        }
+
+
+        function newEl(type, attrs={}) {
+            const el = document.createElement(type);
+            for (let attr in attrs) {
+                const value = attrs[attr];
+                if (attr == 'innerText') el.innerText = value;
+                else el.setAttribute(attr, value);
+            }
+            return el;
+        }
+
+        const creators = [
+            { name: 'Simple Electronics', img: 'https://' },
+            { name: 'Coreteks', img: 'https://' },
+            { name: 'ThriftyAV', img: 'https://' },
+        ]
+
+        const ctr = document.querySelector('.container');
+
+        creators.forEach(creator => {
+            const card = newEl('div', {class: 'card'});
+            const title = newEl('h4', {innerText: creator.name});
+            const img = newEl('img', {src: creator.img});
+            card.appendChild(title);
+            card.appendChild(img);
+            ctr.appendChild(card);
+        })
+    
+        </script>
+        <style>
+            .container {
+                display:flex;
+            }
+
+            .card {
+                margin: 5px;
+                padding: 20px;
+                border: 1px solid black;
+            }
+        </style>
+    
+</body>
+</html>

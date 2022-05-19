@@ -1,3 +1,5 @@
+<!-- I have put html/css & javasript in this index.html file together to make it easier to work with-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +10,11 @@
 </head>
 <body>
     <h1>miniScope4</h1>
-    <h4>Add a new creator</h4>
-    <input class="channel-input" type="text" placeholder="paste Odysee url" />
-    <button type="submit" onclick="submitChannel()">submit</button>
-    <div class="container"></div>
+    <h4>Add a new creator</h4> <!-- user prompted to input a URL & submit -->
+    <input class="channel-input" type="text" placeholder="paste Odysee url" /> <!-- Adding a new class to this input-->
+    <button type="submit" onclick="submitChannel()">submit</button> <!-- Adding a new onclick handler thats attached to a new function below -->
+    <div class="container"></div> <!-- having addressed the #1 function the const ctr variable is selected with the querySelector convention ctrl F...const ctr-->
+    <!-- Helper functions that allows new documents to be added -->
     <script>
 
         function submitChannel() {
@@ -20,35 +23,35 @@
         }
 
 
-        function newEl(type, attrs={}) {
-            const el = document.createElement(type);
-            for (let attr in attrs) {
+        function newEl(type, attrs={}) { // #1 function starts of by passing a type; i.e Header/div/img; and then an object of attributes, that will apply all of the attributes to the elements
+            const el = document.createElement(type); // creates an element with this dot method convention (.createElement)
+            for (let attr in attrs) { // then this part iterates through the attributes checking them one at a time.
                 const value = attrs[attr];
-                if (attr == 'innerText') el.innerText = value;
+                if (attr == 'innerText') el.innerText = value; //this will then finally apply this attribute, with innerText being manipulated to set a property instead of running function 
                 else el.setAttribute(attr, value);
             }
             return el;
         }
 
-        const creators = [
+        const creators = [ // list of creators are looped through with forEach to produce childs of the div in serial fashion
             { name: 'Simple Electronics', img: 'https://' },
             { name: 'Coreteks', img: 'https://' },
             { name: 'ThriftyAV', img: 'https://' },
         ]
 
-        const ctr = document.querySelector('.container');
+        const ctr = document.querySelector('.container'); // from div class
 
         creators.forEach(creator => {
-            const card = newEl('div', {class: 'card'});
+            const card = newEl('div', {class: 'card'}); // child of the div
             const title = newEl('h4', {innerText: creator.name});
             const img = newEl('img', {src: creator.img});
-            card.appendChild(title);
-            card.appendChild(img);
-            ctr.appendChild(card);
+            card.appendChild(title); // adds a header element inside card
+            card.appendChild(img); // adds an img element inside card
+            ctr.appendChild(card); //adds a card on the end of its iteration
         })
     
         </script>
-        <style>
+        <style> /* setting .container class as minimalist style for frontend input */
             .container {
                 display:flex;
             }

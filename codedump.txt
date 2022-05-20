@@ -21,3 +21,17 @@ app.post('/creators', async (req, res) => {});
   app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+
+
+        async function loadCreators() { // Asynchronous functions are prefixed with the async keyword; await suspends the execution until an asynchronous function return promise is fulfilled and unwraps the value from the Promise returned in this case the API
+            const res = await fetch('http://localhost:9000/creators')
+            const creators = await res.json()
+
+
+const creators = [
+            { name: 'Simple Electronics', img: 'https://' },
+            { name: 'Coreteks', img: 'https://' },
+            { name: 'ThriftyAV', img: 'https://' },
+        ];
+

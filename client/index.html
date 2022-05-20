@@ -2,18 +2,22 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>for your relatable interests</title>
 </head>
+
 <body>
-    <h1>miniScope5</h1>
+    <h1>featureScope3</h1>
     <h4>Add a new creator</h4> <!-- user prompted to input a URL & submit below -->
     <input class="channel-input" type="text" placeholder="paste Odysee url" /> <!-- Adding a new class to this input-->
-    <button type="submit" onclick="submitChannel()">submit</button> <!-- Adding a new onclick handler thats attached to a new function below -->
-    <div class="container"></div> <!-- having addressed the #1 function the const ctr variable is selected with the querySelector convention ctrl F...const ctr-->
+    <button type="submit" onclick="submitChannel()">submit</button>
+    <!-- Adding a new onclick handler thats attached to a new function below -->
+    <div class="container"></div>
+    <!-- having addressed the #1 function the const ctr variable is selected with the querySelector convention ctrl F...const ctr-->
 
     <!-- Helper functions that allows new documents to be added -->
     <script>
@@ -24,7 +28,7 @@
         }
 
 
-        function newEl(type, attrs={}) { // #1 function starts of by passing a type; i.e Header/div/img; and then an object of attributes, that will apply all of the attributes to the elements
+        function newEl(type, attrs = {}) { // #1 function starts of by passing a type; i.e Header/div/img; and then an object of attributes, that will apply all of the attributes to the elements
             const el = document.createElement(type); // creates an element with this dot method convention (.createElement)
             for (let attr in attrs) { // then this part iterates through the attributes checking them one at a time.
                 const value = attrs[attr];
@@ -34,35 +38,41 @@
             return el;
         }
 
-        const creators = [ // list of creators are looped through with forEach to produce childs of the div in serial fashion
+        /*const creators = [
             { name: 'Simple Electronics', img: 'https://' },
             { name: 'Coreteks', img: 'https://' },
             { name: 'ThriftyAV', img: 'https://' },
-        ]
+        ];*/
 
         const ctr = document.querySelector('.container'); // from div class
 
-        creators.forEach(creator => {
-            const card = newEl('div', {class: 'card'}); // child of the div
-            const title = newEl('h4', {innerText: creator.name});
-            const img = newEl('img', {src: creator.img});
+        creators.forEach(creator => { // list of creators are looped through with forEach to produce childs of the div in serial fashion
+            const card = newEl('div', { class: 'card' }); // child of the div
+            const title = newEl('h4', { innerText: creator.name });
+            const img = newEl('img', { src: creator.img });
             card.appendChild(title); // adds a header element inside card
             card.appendChild(img); // adds an img element inside card
             ctr.appendChild(card); //adds a card on the end of its iteration
         })
-    
-        </script>
-        <style> /* setting .container class as minimalist style for frontend input */
-            .container {
-                display:flex;
-            }
 
-            .card {
-                margin: 5px;
-                padding: 20px;
-                border: 1px solid black;
-            }
-        </style>
-    
+        loadCreators();
+
+
+
+    </script>
+    <style>
+        /* setting .container class as minimalist style for frontend input */
+        .container {
+            display: flex;
+        }
+
+        .card {
+            margin: 5px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+
 </body>
+
 </html>

@@ -1,91 +1,68 @@
+<!-- I have put html/css & javasript in this index.html file together to make it easier to work with-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>...find your relatable interests</title>
+    <title>for your relatable interests</title>
 </head>
 <body>
-    <h1>FeatureScopeV3</h1>
-    <!-- Header, Input Box, that prompts the user ti input a URL & submit -->
-    <h4>Add a new influencer</h4>
+    <h1>miniScope5</h1>
+    <h4>Add a new creator</h4> <!-- user prompted to input a URL & submit below -->
     <input class="channel-input" type="text" placeholder="paste Odysee url" /> <!-- Adding a new class to this input-->
-    <button type="submit" onclick="submitChannel()">submit</button>            <!-- Adding a new onclick handler thats attached to a new function below -->
+    <button type="submit" onclick="submitChannel()">submit</button> <!-- Adding a new onclick handler thats attached to a new function below -->
+    <div class="container"></div> <!-- having addressed the #1 function the const ctr variable is selected with the querySelector convention ctrl F...const ctr-->
 
-    <div class="container"></div>
-<!-- Helper functions that allows new documents to be added -->
-
+    <!-- Helper functions that allows new documents to be added -->
     <script>
 
-        function submitChannel() { 
-            const channelValue = document.querySelector('channel-input)').value
-            // extacts that '.value' and sends it to a server
-            // server consists of a single route/influencers with the GET and POST methods for REST API provisoning.
-            fetch('http://localhost:3000/influencers', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({channelURL})
-            })
+        function submitChannel() { // #2 new function wherein the submitChannel 'value' is extracted and sent to a server
+            const channelValue = document.querySelector('.channel.input').value;
 
         }
 
-        function newEl(type, attrs={}) {                        // this takes a type i.e <header>, <div>, <img>, then an object of attributes that will apply
-                                                                // all of these attributes to this element.
-            const el = document.createElement(type);            // creates a new element with .createElement method.
-            for (let attr in attrs) {                           // then this will iterate through those attributes checking them one at a time
+
+        function newEl(type, attrs={}) { // #1 function starts of by passing a type; i.e Header/div/img; and then an object of attributes, that will apply all of the attributes to the elements
+            const el = document.createElement(type); // creates an element with this dot method convention (.createElement)
+            for (let attr in attrs) { // then this part iterates through the attributes checking them one at a time.
                 const value = attrs[attr];
-                if (attr == 'innerText') el.innerText = value;  // then it will finally apply these attributes with innerText singled out to set the property, instead of running a function.
+                if (attr == 'innerText') el.innerText = value; //this will then finally apply this attribute, with innerText being manipulated to set a property instead of running function 
                 else el.setAttribute(attr, value);
             }
             return el;
         }
 
-        // below I replaced list with async function to fetch list of influencers to API 
+        const creators = [ // list of creators are looped through with forEach to produce childs of the div in serial fashion
+            { name: 'Simple Electronics', img: 'https://' },
+            { name: 'Coreteks', img: 'https://' },
+            { name: 'ThriftyAV', img: 'https://' },
+        ]
 
-            async function loadInfluencers() {
-                const res = await fetch('http://localhost:3000/influencers'); // within it using native javascript fetch function. Awaits for that to finish and move all rendered code inside too.
-                const influencers = await res.json(); //use.json method to extract all of the data
+        const ctr = document.querySelector('.container'); // from div class
 
-                const ctr = document.querySelector('.container'); // setting a <div> and using a delector query
-        
-                influencers.forEach(influencer => { // loop through influencers
-                    const card = newEl('div', {class: 'card'}); // can select a child element as card
-                    const title = newEl('h4', {innerText: influencer.name});
-                    const img = newEl('img', {src: influencer.img});
-                    card.appendChild(title);
-                    card.appendChild(img);
-                    ctr.appendChild(card); // and add one card onto the end with the append method. 
-                })
+        creators.forEach(creator => {
+            const card = newEl('div', {class: 'card'}); // child of the div
+            const title = newEl('h4', {innerText: creator.name});
+            const img = newEl('img', {src: creator.img});
+            card.appendChild(title); // adds a header element inside card
+            card.appendChild(img); // adds an img element inside card
+            ctr.appendChild(card); //adds a card on the end of its iteration
+        })
+    
+        </script>
+        <style> /* setting .container class as minimalist style for frontend input */
+            .container {
+                display:flex;
             }
-            
-            loadInfluencers(); // calls the function after being defined
-    
-        // Professor Dave - mathematician
-        // games from scratch / odysee
-        // simple electronics/ odysee
-        // ebay accounts
-        // amazon accounts
 
-        // renders list of content creators as HTML (divs) - formatted as cards from json file
-        // sends data by linking form to API with an event listener when clicking submit....
-
-    </script> 
-    <!---->
-    <style>
-        .container {
-            display: flex;
-        }
-        .card{
-            margin: 5px;
-            padding: 20px;
-            border: 1px solid black;
-        }
-
-    
-    </style>
+            .card {
+                margin: 5px;
+                padding: 20px;
+                border: 1px solid black;
+            }
+        </style>
     
 </body>
 </html>

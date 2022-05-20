@@ -1,6 +1,8 @@
 # Future-Scope Webv3 App
 
-Building a full web scraping app in Javascript. The app combines data from social media urls & product based code sources as an mpv. The app will require minimum user input pulling in data from a random channel url like Odysee, YouTube, eBay or Amazon sites.
+Building a full web scraping app in Javascript. The app combines data from social media urls & product based code sources as an mpv. The app will require minimum user input pulling in data from a random channel url like Odysee, YouTube, eBay or Amazon sites. #Step 1
+
+Creates a single route (creators) with GET and POST methods to become RESTful. Using NodEjs and Expressjs
 
 ## Contents
 
@@ -24,11 +26,14 @@ However the app requires a front-end solution to connect the user to an API via 
 
 ## Features
 
+- links a form to an API and triggers an event listener submit button on front end
+- on serving data back to the front end, the following will occur.
+
 - **InformationStorage:**
-- will attempt to retrieve meta data & price info a web source, storing data in a local database every 5 minutes. In development..
+- will attempt to retrieve meta data & price info a web source, storing data in a local database every 5 minutes. In development..e.g <https://featurescopev4.com/get/v4.0>
 
 - **DataFormatingRange:**
-- will adjoining platform to filter out specific range over time. In development....
+- will adjoining platform to filter out specific range over time. In development....e.g <https://featurescopev4.com/posts?tags=javascript> This endpoint will fetch any post that has a tag of JavaScript.
 
 - **DataVisualisation**
 - will attempt to visualize the data in a meaningful way. In development....
@@ -51,7 +56,7 @@ I will endeavour to document my work and thought-process, through commits, comme
 - [npm i body-parser] - used this command to install body-parser
 - [cd server] - changed folder to run and test in node environment
 - [node index.js] - to run or restart the server
-- [curl http://localhost:3000/influencers] - used client URL to test data temporarily in terminal
+- [curl <http://localhost:3000/creators>] - used client URL to test serrver data picked up temporarily in the terminal
 
 ### Stack
 

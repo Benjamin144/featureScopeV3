@@ -1,12 +1,22 @@
-//code from express.js website - updated the routes
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 9000
 
-const express = require("express");
-const { send } = require("express/lib/response");
-const app = express();
-const port = 3000;
+app.get('/creators', async (req, res) => {
+    const creators = [ 
+            { name: 'Simple Electronics', img: 'https://' },
+            { name: 'Coreteks', img: 'https://' },
+            { name: 'ThriftyAV', img: 'https://' },
+    ]
+    // todo: GET from Database
+    res.send(creators)
+})
 
-app.get("/", (req, res) => res.send("Hello, World"));
+app.post('/creators', async (req, res) => {
+
+
+})
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+  console.log(`Example app listening on port ${port}`)
+})
